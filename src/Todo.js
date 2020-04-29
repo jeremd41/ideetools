@@ -62,14 +62,21 @@ class Todo extends Component{
     }
 
     removeTache = (index, key)=>{
-       const newDay = this.state.todo.filter(item =>{
+       const day = this.state.todo
+       const majDay = this.state.todo.filter(item =>{
            return item.key == index
        })
-       console.log(newDay.taches)
-       /*newDay.taches.splice(key,1)
+       majDay[0].taches.splice(key,1)
+       day.splice(index,1);
+       day.push({
+           taches: majDay[0].taches,
+           time: majDay[0].time
+       })
+
+       console.log(majDay[0].taches)
        this.setState({
-           todo: newDay
-       })*/
+           todo: day
+       })
     }
 
     handleForm = () =>{
